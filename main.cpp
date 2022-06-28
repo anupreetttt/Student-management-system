@@ -18,7 +18,8 @@ class LinkedList
 
 public:
     Node *head = NULL;
-    void Insert(){
+    void Insert()
+    {
         int myRoll;
         string myName;
         float mymarks;
@@ -34,33 +35,62 @@ public:
         newNode->rollNum = myRoll;
         newNode->name = myName;
         newNode->marks = mymarks;
-        newNode->percetnage = mymarks/100*100;
+        newNode->percetnage = mymarks / 100 * 100;
         newNode->next = NULL;
 
         if (head == NULL)
         {
             head = newNode;
-        } else {
+        }
+        else
+        {
             Node *ptr = head;
-            while (ptr ->next != )
+            while (ptr->next !=)
             {
                 ptr = ptr->next;
             }
-            ptr ->next = newNode;
+            ptr->next = newNode;
         }
         cout << "newnode inserted successfully" << endl;
     }
 
-    
+    void Search()
+    {
+        if (headh == NULL)
+        {
+            cout << "List is empty" << endl;
+        }
+        else
+        {
+            int myRoll, found;
+            cout << "Enter roll number you want to search: ";
+            cin >> myRoll;
+            Node *ptr = head;
+            while (ptr != NULL)
+            {
+                if (myRoll = ptr->rollNum)
+                {
+                    cout << "Roll number: " << ptr->rollNum << endl;
+                    cout << "Name: " << ptr->name << endl;
+                    cout << "Marks: " << ptr->marks << endl;
+                    cout << "Percenatge: " << ptr->percetnage << endl;
+                }
+                ptr = ptr->next;
+            }
+            if (found == 0){
+                cout << "Roll number does not exist " << endl;
+            }
+        }
+    }
 };
 
 int main()
 {
     LinkedList object;
-    p:
+p:
     system("cls")
 
-    int choice;
+        int choice;
     cout << "1. Insert record: " << endl;
     cout << "2. Search record: " << endl;
     cout << "3. Count nodes: " << endl;
@@ -96,7 +126,7 @@ int main()
     case 7:
         exit(0);
     default:
-    cout << "Invalid choice" << endl;
+        cout << "Invalid choice" << endl;
     }
     getch();
     goto p;
