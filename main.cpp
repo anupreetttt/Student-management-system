@@ -144,8 +144,38 @@ public:
         else
         {
             int myRoll, found = 0;
-            cout << "Enter roll number you want to Deletion: ";
+            cout << "Enter roll number you want to Delete: ";
             cin >> myRoll;
+
+            if (myRoll == head->rollNum)
+            {
+                Node *ptr = head;
+                head = head->next;
+                cout << "Record deleted successfully." << endl;
+                found++;
+                delete ptr;
+            } else {
+                Node *pre = head;
+                Node *ptr = head->next;
+                while (ptr != NULL)
+                {
+                    if (myRoll = ptr->rollNum)
+                    {
+                        pre->next = ptr->next;
+                        cout << "Record deleted successfully." << endl;
+                        found++;
+                        delete ptr;
+                        break;
+                    }
+                    pre = ptr;
+                    ptr = ptr->next;
+                }
+            }  
+            if (found == 0)
+            {
+                cout << "Roll number " << myRoll << " does not exist " << endl;
+            }
+            
         }
     }
 };
