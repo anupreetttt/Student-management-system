@@ -175,7 +175,26 @@ public:
             {
                 cout << "Roll number " << myRoll << " does not exist " << endl;
             }
-            
+        }
+    }
+
+    void Display(){
+        if (head == NULL)
+        {
+            cout << "List is empty" << endl;
+        }
+        else
+        {
+            Node *ptr = head;
+            while (ptr != NULL)
+            {
+           
+                    cout << "Roll number: " << ptr->rollNum << endl;
+                    cout << "Name: " << ptr->name << endl;
+                    cout << "Marks: " << ptr->marks << endl;
+                    cout << "Percenatge: " << ptr->percetnage << endl;
+                    ptr = ptr->next;
+            }
         }
     }
 };
@@ -215,12 +234,15 @@ p:
         break;
     case 4:
         system("clear");
+        object.Updation();
         break;
     case 5:
         system("clear");
+        object.Deletion();
         break;
     case 6:
         system("clear");
+        object.Display();
         break;
     case 7:
         exit(0);
