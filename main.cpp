@@ -1,10 +1,9 @@
 #include <iostream>
-// #include <conio.h>
+#include <stdlib.h>
 using namespace std;
 
 class Node
 {
-
 public:
     int rollNum;
     string name;
@@ -15,27 +14,26 @@ public:
 
 class LinkedList
 {
-
 public:
     Node *head = NULL;
     void Insert()
     {
         int myRoll;
         string myName;
-        float mymarks;
+        float myMarks;
 
         cout << "Enter Roll number of the student: " << endl;
         cin >> myRoll;
         cout << "Enter Name of the student: " << endl;
         cin >> myName;
         cout << "Enter Marks of the student: " << endl;
-        cin >> mymarks;
+        cin >> myMarks;
 
         Node *newNode = new Node;
         newNode->rollNum = myRoll;
         newNode->name = myName;
-        newNode->marks = mymarks;
-        newNode->percetnage = mymarks / 100 * 100;
+        newNode->marks = myMarks;
+        newNode->percetnage = myMarks / 100 * 100;
         newNode->next = NULL;
 
         if (head == NULL)
@@ -45,41 +43,109 @@ public:
         else
         {
             Node *ptr = head;
-            while (ptr->next !=)
+            while (ptr->next != NULL)
             {
                 ptr = ptr->next;
             }
             ptr->next = newNode;
         }
-        cout << "newnode inserted successfully" << endl;
+        cout << "Newn entry was inserted successfully" << endl;
     }
 
     void Search()
     {
-        if (headh == NULL)
+        if (head == NULL)
         {
             cout << "List is empty" << endl;
         }
         else
         {
-            int myRoll, found;
+            int myRoll, found = 0;
             cout << "Enter roll number you want to search: ";
             cin >> myRoll;
             Node *ptr = head;
             while (ptr != NULL)
             {
-                if (myRoll = ptr->rollNum)
+                if (myRoll == ptr->rollNum)
                 {
                     cout << "Roll number: " << ptr->rollNum << endl;
                     cout << "Name: " << ptr->name << endl;
                     cout << "Marks: " << ptr->marks << endl;
                     cout << "Percenatge: " << ptr->percetnage << endl;
+                    found++;
                 }
                 ptr = ptr->next;
             }
-            if (found == 0){
-                cout << "Roll number does not exist " << endl;
+            if (found == 0)
+            {
+                cout << "Roll number " << myRoll << " does not exist " << endl;
             }
+        }
+    }
+    void count()
+    {
+        if (head == NULL)
+        {
+            cout << "List is empty" << endl;
+        }
+        else
+        {
+            int c = 0;
+            Node *ptr = head;
+            while (ptr != NULL)
+            {
+                c++;
+                ptr = ptr->next;
+            }
+            cout << "Total number of nodes: " << c << endl;
+        }
+    }
+
+    void Updation()
+    {
+        if (head == NULL)
+        {
+            cout << "List is empty" << endl;
+        }
+        else
+        {
+            int myRoll, found = 0;
+            cout << "Enter roll number you want to update: ";
+            cin >> myRoll;
+            Node *ptr = head;
+            while (ptr != NULL)
+            {
+                if (myRoll == ptr->rollNum)
+                {
+                    cout << "Enter new roll number of the student: " << endl;
+                    cin >> ptr->rollNum;
+                    cout << "Enter Name of the student: " << endl;
+                    cin >> ptr->name;
+                    cout << "Enter Marks of the student: " << endl;
+                    cin >> ptr->marks;
+                    ptr->percetnage = ptr->marks / 100 * 100;
+                    cout << "Record was updated successfully" << endl;
+                    found++;
+                }
+                ptr = ptr->next;
+            }
+            if (found == 0)
+            {
+                cout << "Roll number " << myRoll << " does not exist " << endl;
+            }
+        }
+    }
+    void Deletion()
+    {
+        if (head == NULL)
+        {
+            cout << "List is empty" << endl;
+        }
+        else
+        {
+            int myRoll, found = 0;
+            cout << "Enter roll number you want to Deletion: ";
+            cin >> myRoll;
         }
     }
 };
@@ -87,10 +153,10 @@ public:
 int main()
 {
     LinkedList object;
+    system("clear");
 p:
-    system("cls")
 
-        int choice;
+    int choice;
     cout << "1. Insert record: " << endl;
     cout << "2. Search record: " << endl;
     cout << "3. Count nodes: " << endl;
@@ -106,28 +172,31 @@ p:
     switch (choice)
     {
     case 1:
-        system("cls");
+        system("clear");
+        object.Insert();
         break;
     case 2:
-        system("cls");
+        system("clear");
+        object.Search();
         break;
     case 3:
-        system("cls");
+        system("clear");
+        object.count();
         break;
     case 4:
-        system("cls");
+        system("clear");
         break;
     case 5:
-        system("cls");
+        system("clear");
         break;
     case 6:
-        system("cls");
+        system("clear");
         break;
     case 7:
         exit(0);
     default:
         cout << "Invalid choice" << endl;
     }
-    getch();
+    getchar();
     goto p;
 }
