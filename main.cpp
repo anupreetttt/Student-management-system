@@ -18,6 +18,40 @@ class LinkedList
 
 public:
     Node *head = NULL;
+    void Insert(){
+        int myRoll;
+        string myName;
+        float mymarks;
+
+        cout << "Enter Roll number of the student: " << endl;
+        cin >> myRoll;
+        cout << "Enter Name of the student: " << endl;
+        cin >> myName;
+        cout << "Enter Marks of the student: " << endl;
+        cin >> mymarks;
+
+        Node *newNode = new Node;
+        newNode->rollNum = myRoll;
+        newNode->name = myName;
+        newNode->marks = mymarks;
+        newNode->percetnage = mymarks/100*100;
+        newNode->next = NULL;
+
+        if (head == NULL)
+        {
+            head = newNode;
+        } else {
+            Node *ptr = head;
+            while (ptr ->next != )
+            {
+                ptr = ptr->next;
+            }
+            ptr ->next = newNode;
+        }
+        cout << "newnode inserted successfully" << endl;
+    }
+
+    
 };
 
 int main()
